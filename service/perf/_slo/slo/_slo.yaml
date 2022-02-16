@@ -1,0 +1,10 @@
+config:
+  - demo_slo: "_slo.json"
+
+demo_slo:
+  - name: "{ENV} - {APPNAME} - {SERVICE NAME} - perf"
+  - serviceId: "SERVICE-{ID}"
+  - calcMetric: "service/perf/csm/calculated-metrics-service/demo_calc.name"
+  - target: "95.0"
+  - warning: "97.5"
+  - timeFrame: now-1d

@@ -1,0 +1,8 @@
+config:
+  - demo_calc: "_cmaw.json"
+
+demo_calc:
+  - name: "calc:apps.web.{APP NAME}.{ACTION NAME}.performance"
+  - appId: "APPLICATION-{ID}"
+  - actionName: "{ACTION NAME}"
+  - responseTime: "5000"

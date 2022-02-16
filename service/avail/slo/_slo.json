@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "name": "{{ .name }}",
+  "description": "",
+  "metricExpression": "(100)*((builtin:service.errors.total.successCount:splitBy())/(builtin:service.requestCount.total:splitBy()))",
+  "target": {{ .target }},
+  "warning": {{ .warning }},
+  "evaluationType": "AGGREGATE",
+  "timeframe": "{{.timeFrame}}",
+  "filter":  "type(SERVICE),entityId({{ .serviceId }})"
+}

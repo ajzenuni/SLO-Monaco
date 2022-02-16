@@ -1,0 +1,9 @@
+config:
+  - demo_calc: "_cms.json"
+
+demo_calc:
+  - name: "calc:service.{ENV}.{APPNAME}.{REQUEST NAME}.perf"
+  - request: "{REQUEST NAME}"
+  - responseTime: "5000"
+  - tagKey: "{TAG KEY}"
+  - tagValue: "{TAG VALUE}"

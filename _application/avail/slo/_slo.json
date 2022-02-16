@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "name": "{{ .name }}",
+  "description": "",
+  "metricExpression": "(100)*((builtin:apps.web.actionCount.category:filter(eq(\"Apdex category\",SATISFIED)):splitBy():sum)/(builtin:apps.web.actionCount.category:splitBy():sum))",
+  "target": {{ .target }},
+  "warning": {{ .warning }},
+  "evaluationType": "AGGREGATE",
+  "timeframe": "{{.timeFrame}}",
+  "filter":  "type(APPLICATION),entityName(\"{{ .appName }}\")"
+}

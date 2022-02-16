@@ -1,0 +1,10 @@
+config:
+  - demo_slo: "_slo.json"
+
+demo_slo:
+  - name: "{ENV} - {APP NAME} - perf"
+  - appName: "{APP NAME}"
+  - calcMetric: "_application/perf/cmaw/calculated-metrics-application-web/demo_calc.name"
+  - target: "95.0"
+  - warning: "97.5"
+  - timeFrame: now-1d

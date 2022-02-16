@@ -1,0 +1,4 @@
+example:
+ - name: "example"
+ - env-url: "https://{tenantID}.live.dynatrace.com"
+ - env-token-name: "example_token"

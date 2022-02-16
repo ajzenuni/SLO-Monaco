@@ -1,0 +1,9 @@
+config:
+  - demo_slo: "_slo.json"
+
+demo_slo:
+  - name: "{ENV} - {APP NAME} - avail"
+  - appName: "{APP NAME}"
+  - target: "95.0"
+  - warning: "97.5"
+  - timeFrame: now-1d

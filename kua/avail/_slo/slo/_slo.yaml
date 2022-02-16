@@ -1,0 +1,13 @@
+config:
+  - demo_slo: "_slo.json"
+
+demo_slo:
+  - name: "{ENV} - {APP NAME} - KUA - {ACTION NAME} - avail"
+  - calcMetric: "kua/avail/cmaw/calculated-metrics-application-web/demo_calc.name"
+  - methodId: "APPLICATION_METHOD-{ID}"
+  - target: "95.0"
+  - warning: "97.5"
+  - timeFrame: now-1d
+  - actionType: "load"
+#  - actionType: "xhr"
+#  - actionType: "custom"

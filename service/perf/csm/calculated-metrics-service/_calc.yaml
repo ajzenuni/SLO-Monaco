@@ -1,0 +1,8 @@
+config:
+  - demo_calc: "_calc.json"
+
+demo_calc:
+  - name: "calc:service.{ENV}.{APPNAME}.{SERVICENAME}.perf"
+  - responseTime: "{TIME}"
+  - tagKey: "{TAG KEY}"
+  - tagValue: "{TAG VALUE}"
