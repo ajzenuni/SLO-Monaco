@@ -4,5 +4,7 @@ config:
 demo_calc:
   - name: "calc:service.{ENV}.{APPNAME}.{SERVICENAME}.perf"
   - responseTime: "{TIME}"
+  - tagContext: "{TAG CONTEXT}"
+# tagContext options - CONTEXTLESS, KUBERNETES, ENVIRONMENT, AZURE, AWS, etc.
   - tagKey: "{TAG KEY}"
   - tagValue: "{TAG VALUE}"

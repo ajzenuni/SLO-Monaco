@@ -2,8 +2,8 @@ config:
   - demo_slo: "_slo.json"
 
 demo_slo:
-  - name: "{ENV} - {APP NAME} - {SERVICE NAME} - avail"
-  - serviceId: "SERVICE-{ID}"
+  - name: "{ENV} - {APPNAME} - {SERVICE NAME} - avail"
+  - tagKeyValue: "KEY:Value"
   - target: "95.0"
   - warning: "97.5"
   - timeFrame: now-1d
