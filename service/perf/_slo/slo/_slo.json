@@ -6,5 +6,6 @@
   "target": {{ .target }},
   "warning": {{ .warning }},
   "evaluationType": "AGGREGATE",
-  "timeframe": "{{.timeFrame}}"
+  "timeframe": "{{.timeFrame}}",
+  "filter":  "type(SERVICE),tag({{ .tagKeyValue }})"
 }
