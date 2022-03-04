@@ -28,7 +28,7 @@
           "type": "TAG",
           "comparison": "EQUALS",
           "value": {
-            "context": "CONTEXTLESS",
+            "context": "{{ .tagContext }}",
             "key": "{{ .tagKey }}",
             "value": "{{ .tagValue }}"
           },

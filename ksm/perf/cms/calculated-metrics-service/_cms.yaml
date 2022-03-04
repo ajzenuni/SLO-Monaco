@@ -2,8 +2,10 @@ config:
   - demo_calc: "_cms.json"
 
 demo_calc:
-  - name: "calc:service.{ENV}.{APPNAME}.{REQUEST NAME}.perf"
+  - name: "calc:service.request.{ENV}.{APPNAME}.{REQUEST NAME}.perf"
   - request: "{REQUEST NAME}"
   - responseTime: "5000"
+  - tagContext: "{TAG CONTEXT}"
+# tagContext options - CONTEXTLESS, KUBERNETES, ENVIRONMENT, AZURE, AWS, etc.
   - tagKey: "{TAG KEY}"
   - tagValue: "{TAG VALUE}"

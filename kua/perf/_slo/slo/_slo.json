@@ -2,7 +2,7 @@
   "enabled": true,
   "name": "{{ .name }}",
   "description": "",
-  "metricExpression": "(100)*(({{ .calcMetric }}:splitby():count)/(builtin:apps.web.action.count.{{ .actionType }}.browser:filter(eq(\"dt.entity.application_method\",{{ .methodId}})):splitBy(dt.entity.application_method)))",
+"metricExpression": "(100)*(({{ .calcMetric }}:splitby():count)/(builtin:apps.web.action.count.{{ .actionType }}.browser:filter(in(\"dt.entity.application_method\",entitySelector(\"type(APPLICATION_METHOD),entityName({{ .actionName }})\"))):splitBy()))",
   "target": {{ .target }},
   "warning": {{ .warning }},
   "evaluationType": "AGGREGATE",

@@ -7,5 +7,5 @@
   "warning": {{ .warning }},
   "evaluationType": "AGGREGATE",
   "timeframe": "{{.timeFrame}}",
-  "filter":  "type(APPLICATION),entityName(\"{{ .appName }}\")"
+  "filter":  "type(APPLICATION),tag(\"{{ .tagKeyValue }}\")"
 }

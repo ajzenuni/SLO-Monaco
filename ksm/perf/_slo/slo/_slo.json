@@ -2,7 +2,7 @@
   "enabled": true,
   "name": "{{ .name }}",
   "description": "",
-  "metricExpression": "(100)*(({{ .calcMetric }}:splitBy():sum)/(builtin:service.keyRequest.count.total:filter(eq(\"dt.entity.service_method\",{{ .methodId}})):splitby()))",
+  "metricExpression": "(100)*(({{ .calcMetric }}:splitBy():sum)/(builtin:service.keyRequest.count.total:filter(in(\"dt.entity.service_method\",entitySelector(\"type(SERVICE_METHOD),entityName({{ .request }})\"))):splitby()))",
   "target": {{ .target }},
   "warning": {{ .warning }},
   "evaluationType": "AGGREGATE",

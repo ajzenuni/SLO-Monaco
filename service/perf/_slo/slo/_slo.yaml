@@ -3,7 +3,7 @@ config:
 
 demo_slo:
   - name: "{ENV} - {APPNAME} - {SERVICE NAME} - perf"
-  - tagKeyValue: "KEY:Value"
+  - tagKeyValue: "KEY:VALUE"
   - calcMetric: "service/perf/csm/calculated-metrics-service/demo_calc.name"
   - target: "95.0"
   - warning: "97.5"

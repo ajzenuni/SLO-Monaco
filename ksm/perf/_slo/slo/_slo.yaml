@@ -4,7 +4,7 @@ config:
 demo_slo:
   - name: "{ENV} - {APP NAME} - keyRequest - {REQUEST NAME} - perf"
   - calcMetric: "ksm/perf/cms/calculated-metrics-service/demo_calc.name"
-  - methodId: "SERVICE_METHOD-{ID}"
+  - request: "{REQUEST NAME}"
   - target: "95.0"
   - warning: "97.5"
   - timeFrame: now-1d

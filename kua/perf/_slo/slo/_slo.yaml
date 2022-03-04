@@ -2,9 +2,9 @@ config:
   - demo_slo: "_slo.json"
 
 demo_slo:
-  - name: "{ENV} - {APPNAME} - KUA - {ACTION NAME} - performance"
+  - name: "{ENV} - {APPNAME} - KUA - {ACTION NAME} - perf"
   - calcMetric: "kua/perf/cmaw/calculated-metrics-application-web/demo_calc.name"
-  - methodId: "APPLICATION_METHOD-{ID}"
+  - actionName: "{ACTION NAME}"
   - target: "95.0"
   - warning: "97.5"
   - timeFrame: now-1d
