@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      5
+    ],
+    "clusterVersion": "1.236.101.20220304-140711"
+  },
+  "dashboardMetadata": {
+    "name": "{{ .name }}",
+    "shared": "{{ .shared }}",
+    "owner": "{{ .owner }}",
+    "dashboardFilter": {
+      "timeframe": "{{ .timeFrame }}"
+    },
+    "preset": "{{ .preset }}"
+  },
+  "tiles": [
+    {
+      "name": "Customer Group",
+      "nameSize": "",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 228,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Service",
+      "nameSize": "",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 380,
+        "width": 190,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "SlOs",
+      "nameSize": "",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1444,
+        "width": 380,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Markdown",
+      "nameSize": "",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 0,
+        "width": 1824,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+    },
+    {
+      "name": "Markdown",
+      "nameSize": "",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 228,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## |\n"
+    },
+    {
+      "name": "Markdown",
+      "nameSize": "",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 570,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## |\n"
+    },
+    {
+      "name": "Markdown",
+      "nameSize": "",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1292,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## |\n"
+    },
+    {
+      "name": "Indicators",
+      "nameSize": "",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 722,
+        "width": 570,
+        "height": 38
+      },
+      "tileFilter": {}
+    }
+  ],
+  "tilesNameSize": "small"
+}

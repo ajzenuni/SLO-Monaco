@@ -1,0 +1,29 @@
+[
+      {
+      "name": "Service-level objective",
+      "nameSize": "",
+      "tileType": "SLO",
+      "configured": true,
+      "bounds": {
+        "top": 152,
+        "left": 1444,
+        "width": 380,
+        "height": 152
+      },
+      "tileFilter": {},
+      "assignedEntities": []
+    },
+    {
+      "name": "",
+      "nameSize": "",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 114,
+        "left": 1444,
+        "width": 380,
+        "height": 38
+      },
+      "tileFilter": {}
+    }
+]

@@ -1,0 +1,29 @@
+[
+      {
+      "name": "Image",
+      "nameSize": "",
+      "tileType": "IMAGE",
+      "configured": true,
+      "bounds": {
+        "top": 114,
+        "left": 380,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "image": ""
+    },
+    {
+      "name": "",
+      "nameSize": "",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 380,
+        "width": 190,
+        "height": 38
+      },
+      "tileFilter": {}
+    }
+]
