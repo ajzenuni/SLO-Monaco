@@ -29,38 +29,41 @@ def loadSlosYaml(slos,customer,service,name):
                 metric = slos[i][j][1]
             else:
                 mTemp = getFileYAML('{dir}\\{i}\\{j}\\{k}'.format(dir = dir, i=i, j=j, k=slos[i][j][1]))
-            for l in slo["config"]:
-                for key in list(l.keys()):
-                    if name in key:
-                        responseTime = None
-                        if "builtin" not in metric:
-                            if key in getValue("calcMetric", slo[key]):
-                                metric = getValue("name", mTemp[key])
-                                responseTime = getValue("responseTime", mTemp[key])
+            try: 
+                for l in slo["config"]:
+                    for key in list(l.keys()):
+                        if name in key:
+                            responseTime = None
+                            if "builtin" not in metric:
+                                if key in getValue("calcMetric", slo[key]):
+                                    metric = getValue("name", mTemp[key])
+                                    responseTime = getValue("responseTime", mTemp[key])
+                                else:
+                                    print("The env:{name} was not found in the config:{key} in this project:{proj} \nThe calcMetric parameter should reference the correct env.".format(name=name, key=key, proj = '{dir}\\{i}\\{j}\\{k}'.format(dir = dir, i=i, j=j, k=slos[i][j][0])))
+                                    break
+                            cust = getValue("customerGroup", slo[key])
+                            svc = getValue("service", slo[key])
+                            ind = getValue("sli", slo[key])
+                            proj = getValue("project", slo[key])
+                            func = getValue("func", slo[key])
+                            targ = getValue("target", slo[key])
+                            req = getValue("request", slo[key])
+                            aName = getValue("name", slo[key])
+                            if cust in s:
+                                if svc in s[cust]["service"]:
+                                    addIndicator(ind, targ, proj, func, req, metric, aName, responseTime, j, s[cust]["service"][svc]["indicators"])
+                                else:
+                                    s[cust]["service"][svc] = {"image":service[s[cust]["num"]], "indicators":[]}
+                                    addIndicator(ind, targ, proj, func, req, metric, aName, responseTime, j ,s[cust]["service"][svc]["indicators"])
                             else:
-                                print("The env:{name} was not found in the config:{key} in this project:{proj} \nThe calcMetric parameter should reference the correct env.".format(name=name, key=key, proj = '{dir}\\{i}\\{j}\\{k}'.format(dir = dir, i=i, j=j, k=slos[i][j][0])))
-                                break
-                        cust = getValue("customerGroup", slo[key])
-                        svc = getValue("service", slo[key])
-                        ind = getValue("sli", slo[key])
-                        proj = getValue("project", slo[key])
-                        func = getValue("func", slo[key])
-                        targ = getValue("target", slo[key])
-                        req = getValue("request", slo[key])
-                        aName = getValue("name", slo[key])
-                        if cust in s:
-                            if svc in s[cust]["service"]:
-                                addIndicator(ind, targ, proj, func, req, metric, aName, responseTime, j, s[cust]["service"][svc]["indicators"])
-                            else:
-                                s[cust]["service"][svc] = {"image":service[s[cust]["num"]], "indicators":[]}
+                                s[cust] = {"image":customer[image],"num":image,"service":{svc:{"image":service[image], "indicators": []}}}
                                 addIndicator(ind, targ, proj, func, req, metric, aName, responseTime, j ,s[cust]["service"][svc]["indicators"])
-                        else:
-                            s[cust] = {"image":customer[image],"num":image,"service":{svc:{"image":service[image], "indicators": []}}}
-                            addIndicator(ind, targ, proj, func, req, metric, aName, responseTime, j ,s[cust]["service"][svc]["indicators"])
-                            if image < 2:
-                                image += 1
-                            else: 
-                                image = 0
+                                if image < 2:
+                                    image += 1
+                                else: 
+                                    image = 0
+            except:
+                break
 
     return s
 
