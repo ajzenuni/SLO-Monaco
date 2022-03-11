@@ -32,7 +32,7 @@ def loadSlosYaml(slos,customer,service,name):
             try: 
                 for l in slo["config"]:
                     for key in list(l.keys()):
-                        if name in key:
+                        if key.startswith(name):
                             responseTime = None
                             if "builtin" not in metric:
                                 if key in getValue("calcMetric", slo[key]):
@@ -104,8 +104,7 @@ def addIndicator(ind, targ, proj, func, req, metric, aName, responseTime, j, x):
 def buildProject(finalDashboard,name):
     dashboardYaml = {'config':[{name:"dashboard.json"}],name:[{"name":"{name} SLOs".format(name=name)},{"owner":"OWNER"},{"shared":"true"},{"timeFrame":"now-1d"},{"preset":"True"}]}
     projectDir = "{dir}\\{name}-dashboard".format(dir=os.path.split(os.getcwd())[0], name = name)
-    
-
+   
     if not os.path.exists(projectDir):
         os.makedirs(projectDir)
         projectDir = "{dir}\\dashboard".format(dir=projectDir)
@@ -114,7 +113,6 @@ def buildProject(finalDashboard,name):
             json.dump(finalDashboard,f)
         with open('{dir}\\dashboard.yaml'.format(dir=projectDir), 'w') as f:
             yaml.dump(dashboardYaml, f)
-
     else:
         with open('{dir}\\dashboard\\dashboard.json'.format(dir=projectDir), 'w') as f:
            json.dump(finalDashboard,f)
