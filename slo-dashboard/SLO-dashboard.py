@@ -133,7 +133,7 @@ def buildDashboard(cleanSlo, slos, dash, cust, dashes, dashLine, line, service, 
                     addSlo(cleanSlo[slos[i]["service"][j]["indicators"][k]["name"]],sla, sloTop, slos[i]["service"][j]["indicators"][k]["name"], slos[i]["service"][j]["indicators"][k]["target"], slos[i]["service"][j]["indicators"][k]["type"], dash)
                     sloTop = tempTop
                 except:
-                    print("Couldn't add the following SLI or SLO tile to dashboard : {sloName}".format(sloName = cleanSlo[slos[i]["service"][j]["indicators"][k]["name"]]))
+                    print("Couldn't add the following SLI or SLO tile to dashboard : {sloName}".format(sloName = slos[i]["service"][j]["indicators"][k]["name"]))
             top = tempTop
         #addDash(dashLine, dashes, top, tempTop, dash)
         top = tempTop
