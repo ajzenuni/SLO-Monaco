@@ -218,8 +218,21 @@ def addCS(cs, top, x, image, dash):
     dash["tiles"].extend(csTemp)
 
 def getSlo(url, apiToken):
-    get = requests.get("{url}/api/v2/slo?pageSize=10000&sort=name&timeFrame=CURRENT&pageIdx=1&demo=false&evaluate=false&enabledSlos=true&showGlobalSlos=true".format(url=url), headers={'Content-Type': 'application/json', 'Authorization' : 'Api-Token {apitoken}'.format(apitoken=apiToken)})
-    slo = get.json()
+    try:
+        get = requests.get("{url}/api/v2/slo?pageSize=10000&sort=name&timeFrame=CURRENT&pageIdx=1&demo=false&evaluate=false&enabledSlos=true&showGlobalSlos=true".format(url=url), headers={'Content-Type': 'application/json', 'Authorization' : 'Api-Token {apitoken}'.format(apitoken=apiToken)})
+        get.raise_for_status()
+        slo = get.json()
+    except requests.exceptions.HTTPError as err:
+        raise SystemExit(err)
+    except requests.exceptions.Timeout as err:
+        print("The request timed out. Couldn't reach - {url}".format(url = url))
+        raise SystemExit(err)
+    except requests.exceptions.ConnectionError as err:
+        print("The URL was malformed - {url}".format(url = url))
+        raise SystemExit(err)
+    except requests.exceptions.TooManyRedirects as err:
+        print("The URL was malformed - {url}".format(url = url))
+        raise SystemExit(err)
     cleanSlo = {}
     for i in slo["slo"]:
         cleanSlo[i["name"]] = i["id"] 
