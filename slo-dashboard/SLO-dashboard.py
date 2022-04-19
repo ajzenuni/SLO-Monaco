@@ -122,18 +122,17 @@ def buildDashboard(cleanSlo, slos, dash, cust, dashes, dashLine, line, service, 
     sloTop = 114
     tempTop = 0
     for i in slos:
-        #print(top)
-        #print(sloTop)
         addCS(cust,top,i,slos[i]["image"],dash)
         for j in slos[i]["service"]:
-            addCS(service, top, j, slos[i]["service"][j]["image"],dash)
             for k in range(len(slos[i]["service"][j]["indicators"])):
-                try:
+                if slos[i]["service"][j]["indicators"][k]["name"] not in cleanSlo:
+                    print("Couldn't add the following SLI or SLO tile to dashboard : {sloName}. Try running monaco again.".format(sloName = slos[i]["service"][j]["indicators"][k]["name"]))
+                    continue
+                else:
+                    addCS(service, top, j, slos[i]["service"][j]["image"],dash)
                     tempTop = addIndicatorDash(indicator, sloTop, slos[i]["service"][j]["indicators"][k]["metric"],slos[i]["service"][j]["indicators"][k]["sli"],slos[i]["service"][j]["indicators"][k]["responseTime"],dash)
                     addSlo(cleanSlo[slos[i]["service"][j]["indicators"][k]["name"]],sla, sloTop, slos[i]["service"][j]["indicators"][k]["name"], slos[i]["service"][j]["indicators"][k]["target"], slos[i]["service"][j]["indicators"][k]["type"], dash)
                     sloTop = tempTop
-                except:
-                    print("Couldn't add the following SLI or SLO tile to dashboard : {sloName}".format(sloName = slos[i]["service"][j]["indicators"][k]["name"]))
             top = tempTop
         #addDash(dashLine, dashes, top, tempTop, dash)
         top = tempTop

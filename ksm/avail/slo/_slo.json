@@ -1,7 +1,6 @@
 {
   "enabled": true,
   "name": "{{ .name }}",
-  "description": "",
   "metricExpression": "(100)*((builtin:service.keyRequest.errors.server.successCount:splitBy())/(builtin:service.keyRequest.count.total:splitBy()))",
   "target": {{ .target }},
   "warning": {{ .warning }},
